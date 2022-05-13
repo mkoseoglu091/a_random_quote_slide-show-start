@@ -64,7 +64,9 @@ quotes[9].source = "Thomas Fuchs";
 quotes[9].year = "2010";
 quotes[9].citation = "Software Engineering";
 
+// these variables are used to ensure no repeats when button is clicked
 var currentIndex = -1;
+var prevIndex = -1;
 
 
 // use the printQuote function to load the first quote
@@ -77,16 +79,19 @@ printQuote();
  * `getRandomQuote` function
 ***/
 function getRandomQuote() {
-    // generate random number
+
+    // First ensure no repeating numbers
     // I initialise index to a nonsense number at first
     let index = -1;
     // this loop checks the new index with the previous index and if its the same number, it tries again until it gets a new number
     // this ensures every button click gets a new quote
     do {
+        //get random number
         index = Math.floor(Math.random() * quotes.length);
-        //console.log(`current: ${currentIndex} index: ${index}`);
-    } while (index == currentIndex);
+    } while (index == currentIndex || index == prevIndex);
+    prevIndex = currentIndex;
     currentIndex = index;
+    
 
     // get a quote
     let q = quotes[index];
