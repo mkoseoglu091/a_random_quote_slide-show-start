@@ -84,7 +84,7 @@ function getRandomQuote() {
     // this ensures every button click gets a new quote
     do {
         index = Math.floor(Math.random() * quotes.length);
-        //console.log(`current: ${currentIndex} \nindex: ${index}`);
+        //console.log(`current: ${currentIndex} index: ${index}`);
     } while (index == currentIndex);
     currentIndex = index;
 
